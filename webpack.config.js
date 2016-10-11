@@ -1,14 +1,26 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+
+const PATHS = {
+  app: path.join(__dirname, 'app'),
+  build: path.join(__dirname, 'build')
+}
 
 module.exports = {
   entry: {
-    main: "./lib/index.js",
+    main: PATHS.app + '/lib/index.js',
     test: "mocha!./test/index.js"
   },
   output: {
-    path: __dirname,
+    path: PATHS.build,
     filename: "[name].bundle.js"
   },
+  plugins: [
+  new HtmlWebpackPlugin({
+    title: 'React In Theory',
+    inject: 'body'
+  })
+],
   module: {
     loaders: [
       { test: /\.js$/, exclude: '/node_modules/', loader: 'babel-loader' },
@@ -18,6 +30,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', '.css']
+    extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']
   }
 };
