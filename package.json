@@ -1,0 +1,44 @@
+{
+  "name": "weathrly",
+  "version": "1.0.0",
+  "description": "'weathrly app'",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+   "start": "webpack-dev-server --hot --inline",
+   "build": "webpack",
+   "test": "mocha",
+   "sel": "java -jar selenium-server-standalone-2.53.0.jar",
+   "feature": "wdio wdio.conf.js"
+ },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lrknaff/weathrly.git"
+  },
+  "author": "Lacey Knaff and Christine Gamble",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lrknaff/weathrly/issues"
+  },
+  "homepage": "https://github.com/lrknaff/weathrly#readme",
+  "devDependencies": {
+    "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "chai": "^3.5.0",
+    "css-loader": "^0.25.0",
+    "mocha": "^3.1.0",
+    "mocha-loader": "^1.0.0",
+    "mock-local-storage": "^1.0.2",
+    "node-sass": "^3.10.1",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "svg-url-loader": "^1.1.0",
+    "wdio-mocha-framework": "^0.4.3",
+    "webdriverio": "^4.2.16",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.1"
+  }
+}
