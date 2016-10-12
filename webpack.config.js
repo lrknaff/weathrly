@@ -22,13 +22,6 @@ module.exports = {
       { test: /\.svg$/, loader: 'svg-url-loader' }
     ]
   },
-  plugins: [
-     new HtmlWebpackPlugin({
-       template: PATHS.build + '/index.html',
-       title: 'React In Theory',
-       inject: 'body'
-     })
-   ],
 
   resolve: {
     extensions: ['', '.js', '.json', '.jsx', '.scss', '.css']
