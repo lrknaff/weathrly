@@ -8,28 +8,29 @@ const PATHS = {
 
 module.exports = {
   entry: {
-    main: PATHS.app + '/lib/index.js',
-    test: "mocha!./test/index.js"
+    main: PATHS.app + '/index.js',
   },
   output: {
     path: PATHS.build,
     filename: "[name].bundle.js"
   },
-  plugins: [
-  new HtmlWebpackPlugin({
-    title: 'React In Theory',
-    inject: 'body'
-  })
-],
   module: {
     loaders: [
-      { test: /\.js$/, exclude: '/node_modules/', loader: 'babel-loader' },
+      { test: /\.jsx?$/, exclude: '/node_modules/', loader: 'babel-loader' },
       { test: /\.css$/, loader: "style!css" },
       { test: /\.scss$/, loader: "style!css!sass" },
       { test: /\.svg$/, loader: 'svg-url-loader' }
     ]
   },
+  plugins: [
+     new HtmlWebpackPlugin({
+       template: PATHS.build + '/index.html',
+       title: 'React In Theory',
+       inject: 'body'
+     })
+   ],
+
   resolve: {
-    extensions: ['', '.js', '.json', '.scss', '.css', '.jsx']
+    extensions: ['', '.js', '.json', '.jsx', '.scss', '.css']
   }
 };
