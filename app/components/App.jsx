@@ -11,6 +11,7 @@ class App extends React.Component {
   locationAccepted(e) {
 
     e.preventDefault();
+    debugger
     this.serverRequest = $.get(this.props.source + this.state.location, function (result) {
       this.setState({
         info: result
@@ -34,19 +35,23 @@ class App extends React.Component {
   }
 }
 
-class DailyWeather extends React.Component {
-render() {
+//Weather react component
+class Weather extends React.Component {
+  constructor() {
+    super();
+    this.state = {highTemp: ''}
+  }
+}
+
+
+const Weather = ({highTemp}) => {
   return (
-    <section className="daily-weather">
-      <article className="today">
-      debugger
-        <h2 className="high">{this.props.state}</h2>
-        <h2 className="low">{this.props.state}</h2>
-      </article>
+    <section>
+      <h3 className='WeatherListItem-highTemp'>{highTemp}</h3>
     </section>
   )
 }
-}
+
 
 
 
