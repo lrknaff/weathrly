@@ -18,11 +18,21 @@ describe('app.jsc should render the welcome page', function() {
   it('should allow me to click the submit button', function() {
     const wrapper = mount(<App/>);
     const input = wrapper.find('.location-input')
-    
+
     input.simulate('change', {target: {value: 'denver'}});
     wrapper.find('.submit-button').simulate('click');
     expect(wrapper.state().location).to.equal('denver');
   });
+
+  it('should return the high temp', function() {
+    const wrapper = mount(<App/>);
+    const input = wrapper.find('.location-input');
+
+    input.simulate('change', {target: {value: 'denver'}});
+
+    wrapper.find('.submit-button').simulate('click');
+    expect(wrapper.find('.daily-weather')).to.have.length(8);
+  })
 });
 
 

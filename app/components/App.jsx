@@ -42,7 +42,7 @@ class App extends React.Component {
     return (
       <section>
         {this.state.info.map(function(weather) {
-          return <ul key={weather.date}>
+          return <ul id={weather.date} className='daily-weather' key={weather.date}>
             {/* <li className= 'day'>{this.getDay()}</li> */}
             <li className='high-temp'>High temp:{weather.temp.high}</li>
             <li className='low-temp'>Low temp:{weather.temp.low}</li>
