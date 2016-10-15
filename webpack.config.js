@@ -1,5 +1,4 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const PATHS = {
   app: path.join(__dirname, 'app'),
@@ -22,14 +21,6 @@ module.exports = {
       { test: /\.svg$/, loader: 'svg-url-loader' }
     ]
   },
-  plugins: [
-     new HtmlWebpackPlugin({
-       template: PATHS.build + '/index.html',
-       title: 'React In Theory',
-       inject: 'body'
-     })
-   ],
-
   resolve: {
     extensions: ['', '.js', '.json', '.jsx', '.scss', '.css']
   }
