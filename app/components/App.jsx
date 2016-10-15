@@ -2,16 +2,24 @@ const React = require('react');
 const ReactDOM = require('react-dom');
 var $ = require('jquery');
 
+var daysMap = {
+  '0':'Monday',
+  '1':'Tuesday',
+  '2':'Wednesday',
+  '3':'Thursday',
+  '4':'Friday',
+  '5':'Saturday',
+  '6':'Sunday',
+};
+
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {location: ''};
+    this.state = {location: '', info: [], day: daysMap};
   }
 
   locationAccepted(e) {
-
     e.preventDefault();
-    debugger
     this.serverRequest = $.get(this.props.source + this.state.location, function (result) {
       this.setState({
         info: result
@@ -19,8 +27,32 @@ class App extends React.Component {
     }.bind(this));
   }
 
-  render() {
+  getDay() {
+    debugger
+    return (
+      <section>
+        {this.state.day.map(function(day) {
+          return <h2>{day}</h2>
+        })}
+      </section>
+    )
+  }
 
+  dailyWeather() {
+    return (
+      <section>
+        {this.state.info.map(function(weather) {
+          return <ul key={weather.date}>
+            <li className= 'day'>{this.getDay()}</li>
+            <li className='high-temp'>High temp:{weather.temp.high}</li>
+            <li className='low-temp'>Low temp:{weather.temp.low}</li>
+            <li className='weather-type'>Weather type: {weather.weatherType.type}</li></ul>
+        })}
+      </section>
+    )
+  }
+
+  render() {
     return (
       <div>
         <div>
@@ -30,27 +62,15 @@ class App extends React.Component {
           <input type='submit'
             onClick={(e) => this.locationAccepted(e)} />
         </div>
+        <div>
+          {this.dailyWeather()}
+        </div>
       </div>
     )
   }
-}
 
-//Weather react component
-class Weather extends React.Component {
-  constructor() {
-    super();
-    this.state = {highTemp: ''}
   }
-}
 
-
-const Weather = ({highTemp}) => {
-  return (
-    <section>
-      <h3 className='WeatherListItem-highTemp'>{highTemp}</h3>
-    </section>
-  )
-}
 
 
 
