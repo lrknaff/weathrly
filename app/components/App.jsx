@@ -56,10 +56,10 @@ class App extends React.Component {
     return (
       <div>
         <div>
-          <input placeholder='Location'
+          <input className='location-input' placeholder='Location'
             value={this.state.location}
             onChange={(e) => this.setState({location: e.target.value}) } />
-          <input type='submit'
+          <input className='submit-button' type='submit'
             onClick={(e) => this.locationAccepted(e)} />
         </div>
         <div>
