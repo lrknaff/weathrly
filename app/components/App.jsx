@@ -27,23 +27,23 @@ class App extends React.Component {
     }.bind(this));
   }
 
-  getDay() {
-    debugger
-    return (
-      <section>
-        {this.state.day.map(function(day) {
-          return <h2>{day}</h2>
-        })}
-      </section>
-    )
-  }
+  // getDay() {
+  //   debugger
+  //   return (
+  //     <section>
+  //       {this.state.day.map(function(day) {
+  //         return <h2>{day}</h2>
+  //       })}
+  //     </section>
+  //   )
+  // }
 
   dailyWeather() {
     return (
       <section>
         {this.state.info.map(function(weather) {
           return <ul key={weather.date}>
-            <li className= 'day'>{this.getDay()}</li>
+            {/* <li className= 'day'>{this.getDay()}</li> */}
             <li className='high-temp'>High temp:{weather.temp.high}</li>
             <li className='low-temp'>Low temp:{weather.temp.low}</li>
             <li className='weather-type'>Weather type: {weather.weatherType.type}</li></ul>
