@@ -18,12 +18,20 @@ class App extends React.Component {
     this.state = {location: '', info: []};
   }
 
+
+
+  componentDidMount() {
+    const recentInputLocation = JSON.parse(localStorage.getItem('location'));
+    this.setState({location: recentInputLocation ? recentInputLocation : ''})
+  }
+
   locationAccepted(e) {
     e.preventDefault();
     this.serverRequest = $.get(this.props.source + this.state.location, function (result) {
       this.setState({
         info: result
       });
+      localStorage.setItem("location", JSON.stringify(this.state.location));
     }.bind(this));
   }
 
