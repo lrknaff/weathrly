@@ -27,16 +27,10 @@ class App extends React.Component {
     }.bind(this));
   }
 
-  // getDay() {
-  //   debugger
-  //   return (
-  //     <section>
-  //       {this.state.day.map(function(day) {
-  //         return <h2>{day}</h2>
-  //       })}
-  //     </section>
-  //   )
-  // }
+ getDay () {
+   var day = new Date();
+   var weekday = daysMap[day.getDay()];
+  }
 
   dailyWeather() {
     return (
@@ -46,7 +40,7 @@ class App extends React.Component {
             {/* <li className= 'day'>{this.getDay()}</li> */}
             <li className='high-temp'>High temp:{weather.temp.high}</li>
             <li className='low-temp'>Low temp:{weather.temp.low}</li>
-            <li className='weather-type'>Weather type: {weather.weatherType.type}</li></ul>
+            <li className={weather.weatherType.type}>Weather type: {weather.weatherType.type}</li></ul>
         })}
       </section>
     )
@@ -54,7 +48,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className={this.state.location}>
         <div>
           <input className='location-input' placeholder='Location'
             value={this.state.location}
