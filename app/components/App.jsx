@@ -3,19 +3,19 @@ const ReactDOM = require('react-dom');
 var $ = require('jquery');
 
 var daysMap = {
-  '0':'Monday',
-  '1':'Tuesday',
-  '2':'Wednesday',
-  '3':'Thursday',
-  '4':'Friday',
-  '5':'Saturday',
-  '6':'Sunday',
+  '0':'Sunday',
+  '1':'Monday',
+  '2':'Tuesday',
+  '3':'Wednesday',
+  '4':'Thursday',
+  '5':'Friday',
+  '6':'Saturday',
 };
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {location: '', info: [], day: daysMap};
+    this.state = {location: '', info: []};
   }
 
   locationAccepted(e) {
@@ -27,34 +27,30 @@ class App extends React.Component {
     }.bind(this));
   }
 
-  // getDay() {
-  //   debugger
-  //   return (
-  //     <section>
-  //       {this.state.day.map(function(day) {
-  //         return <h2>{day}</h2>
-  //       })}
-  //     </section>
-  //   )
-  // }
+ getDay (date) {
+   var currentDate = date.split("-");
+   var date = new Date(currentDate[2], currentDate[0], currentDate[1]);
+   return daysMap[date.getDay()];
+  }
 
   dailyWeather() {
     return (
       <section>
         {this.state.info.map(function(weather) {
-          return <ul id={weather.date} className='daily-weather' key={weather.date}>
-            {/* <li className= 'day'>{this.getDay()}</li> */}
+
+          return <ul id={this.getDay(weather.date)} className='daily-weather' key={weather.date}>
+            <li className= 'day'>{this.getDay(weather.date)}</li>
             <li className='weather-type'>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</li>
             <li className='high-temp'>High:{weather.temp.high}&deg;</li>
             <li className='low-temp'>Low:{weather.temp.low}&deg;</li></ul>
-        })}
+        }.bind(this))}
       </section>
     )
   }
 
   render() {
     return (
-      <div>
+      <div className={this.state.location}>
         <div>
           <input className='location-input' placeholder='Location'
             value={this.state.location}
