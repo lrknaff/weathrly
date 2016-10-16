@@ -21,6 +21,7 @@ module.exports = {
       { test: /\.svg$/, loader: 'svg-url-loader' }
     ]
   },
+
   resolve: {
     extensions: ['', '.js', '.json', '.jsx', '.scss', '.css']
   }
