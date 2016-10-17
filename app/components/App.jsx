@@ -18,20 +18,31 @@ class App extends React.Component {
     this.state = {location: '', info: [], locationTitle: ''};
   }
 
-  componentDidMount() {
+  componentDidMount(e) {
     const recentInputLocation = JSON.parse(localStorage.getItem('location'));
     this.setState({location: recentInputLocation ? recentInputLocation : ''})
+    this.setState({locationTitle: recentInputLocation ? recentInputLocation : ''})
   }
 
   locationAccepted(e) {
+
     e.preventDefault();
-    this.serverRequest = $.get(this.props.source + this.state.location, function (result) {
+
+    var location = this.state.location.replace(/\s+/g, '-').toLowerCase();
+    if (location === 'denver' || location === 'san-diego' || location === 'san-fransico' || location === 'castle-rock')
+      {
+        location
+      }
+      else {return this.setState({locationTitle: 'Invalid Input', location: ''})}
+
+
+    this.serverRequest = $.get(this.props.source + location, function (result) {
       this.setState({
         info: result
       });
-      localStorage.setItem("location", JSON.stringify(this.state.location));
+      localStorage.setItem("location", JSON.stringify(location));
     }.bind(this));
-    this.setState({locationTitle: this.state.location, location: ''});
+    this.setState({locationTitle: this.state.location.replace(/\s+/g, '-').toLowerCase(), location: ''});
   }
 
  getDay (date) {
@@ -59,37 +70,13 @@ class App extends React.Component {
   showExtremeWeather(weather) {
 
     if (weather.weatherType.scale === 3) {
-      if (weather.weatherType.type === "sunny") {
-        return(<div className="warning sun">
-          <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be extreme sun. </p>
-          <p className="extreme-weather-text2">Stay inside if possible, and use sunscreen when going outdoors!
-          </p>
-        </div>);
-      }
-      else if (weather.weatherType.type === "rain") {
-        return(<div className='warning rain'>
-          <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be a high chance of flooding and extreme rain. </p>
-          <p className="extreme-weather-text2">Flash flooding is likely. Limit driving as much as possible.
-          </p>
-        </div>);
-      }
-      else if (weather.weatherType.type === "windy") {
-        return(<div className='warning windy'>
-          <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be very high winds.</p>
-          <p className="extreme-weather-text2">These winds can cause significant damage to trees and property. Be prepared for power outages.</p>
-        </div>);
-      }
-      else if (weather.weatherType.type === "snow") {
-        return(<div className='warning snow'>
-          <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be heavy snow!
-          </p>
-          <p className="extreme-weather-text2">Heavy snow is expected. Travel may become hazardous. Stay indoors if possible.
-          </p>
-        </div>);
-      }
-
+      return(<div className="extreme-weather">
+        <p>Extreme conditons expected.</p>
+      </div>);
     }
   }
+
+
 
 enterKeySubmit(e) {
   if(e.key === 'Enter') {
@@ -107,7 +94,8 @@ enterKeySubmit(e) {
           <input className='location-input' type='text' placeholder='location'
             value={this.state.location}
             onChange={(e) => {
-              this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase(e)});
+
+              this.setState({location: (e.target.value)});
             }}
             onKeyPress={(e) => {
               this.enterKeySubmit(e);
