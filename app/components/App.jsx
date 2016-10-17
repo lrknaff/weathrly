@@ -35,7 +35,6 @@ class App extends React.Component {
       }
       else {return this.setState({locationTitle: 'Invalid Input', location: ''})}
 
-      ///when locationTitle is "Invalid Input" change in CSS to hide the weather info
 
     this.serverRequest = $.get(this.props.source + location, function (result) {
       this.setState({
@@ -72,7 +71,7 @@ class App extends React.Component {
 
     if (weather.weatherType.scale === 3) {
       return(<div className="extreme-weather">
-        <p>Extreme conditons expected. Take necessary precautions.</p>
+        <p>Extreme conditons expected.</p>
       </div>);
     }
   }
