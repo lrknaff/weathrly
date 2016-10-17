@@ -1,17 +1,9 @@
 var expect = require('chai').expect;
 const React = require('react');
 const App   = require('../app/components/App');
+require('locus')
 
 import {shallow, mount, render} from 'enzyme';
-
-if (!global.window.localStorage) {
-  localStorage = {
-    getItem() { return '{}'; },}
-}
-
-if (typeof(exports) !== "undefined"){
-  var $ = require('jquery');
-}
 
 describe('app.jsc should render the welcome page', function() {
   it('should render the input field', function() {
@@ -26,24 +18,21 @@ describe('app.jsc should render the welcome page', function() {
 
   it('should allow me to click the submit button', function() {
     const wrapper = mount(<App/>);
-    const input = wrapper.find('.location-input')
+    const input = wrapper.find('.location-input');
 
     input.simulate('change', {target: {value: 'denver'}});
     wrapper.find('.submit-button').simulate('click');
     expect(wrapper.state().location).to.equal('denver');
   });
 
-  it('should return the high temp', function() {
-    const wrapper = mount(<App/>);
-    const input = wrapper.find('.location-input');
+  it('should render the application', function () {
+      const wrapper = mount(<App/>);
+      const input = wrapper.find('.location-input');
 
-    input.simulate('change', {target: {value: 'denver'}});
-
-    wrapper.find('.submit-button').simulate('click');
-    expect(wrapper.find('.daily-weather')).to.have.length(8);
-  })
+      input.simulate('change', {target: {value: 'denver'} });
+      expect(wrapper.state('location')).to.equal('denver');
+    });
 });
-
 
 
 // describe('app.jsx should render the LikesCounter', function(){

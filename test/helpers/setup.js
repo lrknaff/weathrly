@@ -10,3 +10,12 @@ global.document = require('jsdom').jsdom(
 global.window = document.defaultView;
 global.navigator = window.navigator;
 //and an instance of the window
+
+if (!global.window.localStorage) {
+ localStorage = {
+   getItem() { return '{}'; },}
+}
+
+if (typeof(exports) !== "undefined"){
+ var $ = require('jquery');
+}
