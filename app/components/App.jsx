@@ -25,11 +25,12 @@ class App extends React.Component {
 
   locationAccepted(e) {
     e.preventDefault();
-    this.serverRequest = $.get(this.props.source + this.state.location, function (result) {
+    var location = this.state.location.replace(/\s+/g, '-').toLowerCase()
+    this.serverRequest = $.get(this.props.source + location, function (result) {
       this.setState({
         info: result
       });
-      localStorage.setItem("location", JSON.stringify(this.state.location));
+      localStorage.setItem("location", JSON.stringify(location));
     }.bind(this));
   }
 
@@ -41,7 +42,7 @@ class App extends React.Component {
 
   dailyWeather() {
     return (
-      <section className={this.state.location}>
+      <section className={this.state.location.replace(/\s+/g, '-').toLowerCase()}>
         {this.state.info.map(function(weather) {
           return <ul id={this.location} className='daily-weather' key={weather.date}>
             <p className= 'day'>{this.getDay(weather.date)}</p>
@@ -102,7 +103,7 @@ enterKeySubmit(e) {
           <input className='location-input' type='text' placeholder='location'
             value={this.state.location}
             onChange={(e) => {
-              this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase()});
+              this.setState({location: (e.target.value)});
               this.enterKeySubmit(e);
             }} />
           <input className='submit-button' type='submit'
