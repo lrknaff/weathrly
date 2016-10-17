@@ -44,12 +44,12 @@ class App extends React.Component {
     return (
       <section className={this.state.locationTitle}>
         {this.state.info.map(function(weather) {
-          return <ul id={this.location} className='daily-weather' key={weather.date}>
+          return <article className={weather.date} key={weather.date}>
             <p className= 'day'>{this.getDay(weather.date)}</p>
             <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
             <p className='high-temp'>High:{weather.temp.high}&deg;</p>
             <p className='low-temp'>Low:{weather.temp.low}&deg;</p>
-            <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></ul>
+            <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></article>
         }.bind(this))}
       </section>
     )

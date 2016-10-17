@@ -5,7 +5,7 @@ section.denver, section.castle-rock, section.san-diego, section.san-fransico {
     bottom: 0;
     height: 240px;
     position: absolute;
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
 }
 
@@ -30,6 +30,18 @@ section.san-fransico {
 }
 
 /*weather styling*/
+article {
+  display: inline-block;
+  width: 22%;
+}
+
+article.09-19-2016 {
+  background-color: blue;
+  width: 33%;
+  height: 100%;
+  padding: 15px;
+}
+
 .sunny {
   background: url('/images/sunny.svg') no-repeat;
 }
