@@ -72,41 +72,11 @@ class App extends React.Component {
 
     if (weather.weatherType.scale === 3) {
       return(<div className="extreme-weather">
-        <p>On {this.getDay(weather.date)} there will be extreme {weather.weatherType.type}</p>
+        <p>Extreme conditons expected. Take necessary precautions.</p>
       </div>);
     }
   }
 
-    //   if (weather.weatherType.type === "sunny") {
-    //     return(<div className="warning sun">
-    //       <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be extreme sun. </p>
-    //       <p className="extreme-weather-text2">Stay inside if possible, and use sunscreen when going outdoors!
-    //       </p>
-    //     </div>);
-    //   }
-    //   else if (weather.weatherType.type === "rain") {
-    //     return(<div className='warning rain'>
-    //       <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be a high chance of flooding and extreme rain. </p>
-    //       <p className="extreme-weather-text2">Flash flooding is likely. Limit driving as much as possible.
-    //       </p>
-    //     </div>);
-    //   }
-    //   else if (weather.weatherType.type === "windy") {
-    //     return(<div className='warning windy'>
-    //       <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be very high winds.</p>
-    //       <p className="extreme-weather-text2">These winds can cause significant damage to trees and property. Be prepared for power outages.</p>
-    //     </div>);
-    //   }
-    //   else if (weather.weatherType.type === "snow") {
-    //     return(<div className='warning snow'>
-    //       <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be heavy snow!
-    //       </p>
-    //       <p className="extreme-weather-text2">Heavy snow is expected. Travel may become hazardous. Stay indoors if possible.
-    //       </p>
-    //     </div>);
-    //   }
-    //
-    // }
 
 
 enterKeySubmit(e) {

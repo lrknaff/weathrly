@@ -29,6 +29,10 @@ section.san-fransico {
   background-size: cover;
 }
 
+section.Invalid.Input {
+  display: none;
+}
+
 /*weather styling*/
 article {
   display: inline-block;
