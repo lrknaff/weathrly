@@ -44,12 +44,13 @@ class App extends React.Component {
     return (
       <section className={this.state.locationTitle}>
         {this.state.info.map(function(weather) {
-          return <ul id={this.location} className='daily-weather' key={weather.date}>
-            <p className= 'day'>{this.getDay(weather.date)}</p>
+          return <article key={weather.date}>
+            <h2 className= 'day'>{this.getDay(weather.date)}</h2>
+            <div className={weather.weatherType.type}></div>
             <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
             <p className='high-temp'>High:{weather.temp.high}&deg;</p>
             <p className='low-temp'>Low:{weather.temp.low}&deg;</p>
-            <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></ul>
+            <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></article>
         }.bind(this))}
       </section>
     )
@@ -99,7 +100,9 @@ enterKeySubmit(e) {
   render() {
     return (
       <div className={this.state.locationTitle}>
-        <h1>{this.state.locationTitle}</h1>
+        <section id='location-title'>
+          <h1>{this.state.locationTitle}</h1>
+        </section>
         <div>
           <input className='location-input' type='text' placeholder='location'
             value={this.state.location}
