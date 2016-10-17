@@ -1,0 +1,39 @@
+/* weather display */
+
+/*light background*/
+section.denver, section.castle-rock, section.san-diego, section.san-fransico {
+    bottom: 0;
+    height: 240px;
+    position: absolute;
+    width: 100%;
+    overflow: hidden;
+}
+
+section.castle-rock {
+  background: url('/images/castle-rock-blurry.jpg') no-repeat center fixed;
+  background-size: cover;
+}
+
+section.denver {
+  background: url('/images/denver-blurry.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+section.san-diego {
+  background: url('/images/san-diego-blurry.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+section.san-fransico {
+  background: url('/images/san-fran-blurry.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+/*weather styling*/
+.sunny {
+  background: url('/images/sunny.svg') no-repeat;
+}
+
+.windy {
+  background: url('/images/windy.svg') no-repeat 50px 50px;
+}

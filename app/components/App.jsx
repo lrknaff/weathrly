@@ -15,7 +15,7 @@ var daysMap = {
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {location: '', info: []};
+    this.state = {location: '', info: [], locationTitle: ''};
   }
 
   componentDidMount() {
@@ -31,6 +31,7 @@ class App extends React.Component {
       });
       localStorage.setItem("location", JSON.stringify(this.state.location));
     }.bind(this));
+    this.setState({locationTitle: this.state.location, location: ''});
   }
 
  getDay (date) {
@@ -41,12 +42,11 @@ class App extends React.Component {
 
   dailyWeather() {
     return (
-      <section>
+      <section className={this.state.locationTitle}>
         {this.state.info.map(function(weather) {
-
-          return <ul id={this.getDay(weather.date)} className='daily-weather' key={weather.date}>
+          return <ul id={this.location} className='daily-weather' key={weather.date}>
             <p className= 'day'>{this.getDay(weather.date)}</p>
-            <p className='weather-type'>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
+            <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
             <p className='high-temp'>High:{weather.temp.high}&deg;</p>
             <p className='low-temp'>Low:{weather.temp.low}&deg;</p>
             <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></ul>
@@ -90,16 +90,28 @@ class App extends React.Component {
     }
   }
 
+enterKeySubmit(e) {
+  if(e.key === 'Enter') {
+    this.locationAccepted(e);
+  }
+}
 
   render() {
     return (
-      <div className={this.state.location}>
+      <div className={this.state.locationTitle}>
+        <h1>{this.state.locationTitle}</h1>
         <div>
-          <input className='location-input' placeholder='Location'
+          <input className='location-input' type='text' placeholder='location'
             value={this.state.location}
-            onChange={(e) => this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase()}) } />
+            onChange={(e) => {
+              this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase(e)});
+            }}
+            onKeyPress={(e) => {
+              this.enterKeySubmit(e);
+            }}/>
           <input className='submit-button' type='submit'
-            onClick={(e) => this.locationAccepted(e)} />
+            onClick={(e) =>
+              this.locationAccepted(e)} />
         </div>
         <div>
           {this.dailyWeather()}

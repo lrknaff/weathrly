@@ -1,46 +1,61 @@
-$main-background: #cec2c2;
-$button-background: #982292;
-$faded-background: rgba(255,255,255,0.4);
-@mixin light-font {
-  font-family: helvetica, sans-serif;
-  font-weight: 100;
+@import 'reset.scss';
+@import 'variables.scss';
+@import 'daily-weather.scss';
+
+/* home page and input*/
+
+#application {
+  background: url('/images/welcome-screen.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100vh;
+}
+
+.location-input {
+  color: $white;
+  background: none;
+  border: none;
+  font-family: $primary-font;
+  font-size: 4.2em;
+  font-weight: 500;
   letter-spacing: 2px;
+  margin: 50px 50px 15px;
+  outline: none;
+  width: 100%;
+}
+
+.submit-button {
+  background-color: $white;
+  border: none;
+  font-family: $primary-font;
+  font-size: 16px;
+  letter-spacing: 1px;
   text-transform: uppercase;
+  padding: 10px;
+  margin-left: 50px;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
 }
-body {
-  background: $main-background;
-  @include light-font;
+
+/* city styling */
+.castle-rock {
+  background: url('/images/castle-rock.jpg') no-repeat center center fixed;
 }
-h3 {
-    position: relative;
-    top: 50px;
-    font-weight: 100;
-    font-size: 30px;
-    color: #5a5959;
-    text-align: center;
+
+.denver {
+  background: url('/images/denver.jpg') no-repeat center center fixed;
 }
-button {
-    padding: 20px;
-    border-radius: 2px;
-    outline: none;
-    border: none;
-    background: $button-background;
-    color: white;
-    margin: 10px;
-    width: 100px;
-    @include light-font;
-    &:hover {
-      background: darken($button-background, 20);
-      cursor: pointer;
-    }
+
+.san-diego {
+  background: url('/images/san-diego.jpg') no-repeat center center fixed;
 }
-.LikesCounter {
-  height: 300px;
-  width: 300px;
-  margin: 78px auto;
-  background: $faded-background;
+
+.san-fransico {
+  background: url('/images/san-fran.jpg') no-repeat center center fixed;
 }
-.ActionButtons {
-  width: 240px;
-  margin: 100px auto 0 auto;
+
+.denver, .san-diego, .castle-rock, .san-fransico {
+  background-size: cover;
+  height: 100vh;
 }
