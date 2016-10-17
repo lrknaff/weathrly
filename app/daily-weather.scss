@@ -5,7 +5,7 @@ section.denver, section.castle-rock, section.san-diego, section.san-fransico {
     bottom: 0;
     height: 240px;
     position: absolute;
-    width: 100%;
+    width: 100vw;
     overflow: hidden;
 }
 
@@ -30,10 +30,43 @@ section.san-fransico {
 }
 
 /*weather styling*/
-.sunny {
-  background: url('/images/sunny.svg') no-repeat;
+article {
+  display: inline-block;
+  width: 25%;
+  text-align: center;
 }
 
-.windy {
-  background: url('/images/windy.svg') no-repeat 50px 50px;
+div.sunny {
+  background: url('/images/svg/sunny.svg') no-repeat;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+}
+
+div.windy {
+  background: url('/images/svg/windy.svg') no-repeat;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+}
+
+div.thunder {
+  background: url('/images/svg/thunder-storms.svg') no-repeat;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+}
+
+div.snow {
+  background: url('/images/svg/snowy.svg') no-repeat;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+}
+
+div.rain {
+  background: url('/images/svg/rain.svg') no-repeat;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
 }

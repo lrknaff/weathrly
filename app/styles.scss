@@ -10,17 +10,32 @@
   height: 100vh;
 }
 
-.location-input {
+h1 {
   color: $white;
-  background: none;
+  font-family: 'Roboto';
+  font-weight: 500;
+  font-size: 3.75em;
+  letter-spacing: 2.5px;
+}
+
+#location-title {
+  height: 70px;
+  width: 50%;
+  padding: 70px 25px 25px 70px;
+}
+
+.location-input {
+  color: $dark-grey;
+  background: $white;
   border: none;
   font-family: $primary-font;
-  font-size: 4.2em;
-  font-weight: 500;
-  letter-spacing: 2px;
-  margin: 50px 50px 15px;
+  font-size: 2em;
+  font-weight: 400;
+  letter-spacing: 1px;
+  margin-left: 70px;
   outline: none;
-  width: 100%;
+  padding-left: 15px;
+  width: 325px;
 }
 
 .submit-button {
@@ -30,8 +45,9 @@
   font-size: 16px;
   letter-spacing: 1px;
   text-transform: uppercase;
-  padding: 10px;
-  margin-left: 50px;
+  padding: 12px;
+  margin-left: 10px;
+  vertical-align: bottom;
   &:hover {
     cursor: pointer;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
