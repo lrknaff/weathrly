@@ -47,9 +47,9 @@ class App extends React.Component {
           return <article key={weather.date}>
             <h2 className= 'day'>{this.getDay(weather.date)}</h2>
             <div className={weather.weatherType.type}></div>
+            <h4 className='high-temp'>{weather.temp.high}&deg;</h4>
+            <h4 className='low-temp'>{weather.temp.low}&deg;</h4>
             <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
-            <p className='high-temp'>High:{weather.temp.high}&deg;</p>
-            <p className='low-temp'>Low:{weather.temp.low}&deg;</p>
             <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></article>
         }.bind(this))}
       </section>
@@ -60,30 +60,23 @@ class App extends React.Component {
 
     if (weather.weatherType.scale === 3) {
       if (weather.weatherType.type === "sunny") {
-        return(<div className="warning sun">
-          <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be extreme sun. </p>
-          <p className="extreme-weather-text2">Stay inside if possible, and use sunscreen when going outdoors!
-          </p>
+        return(<div className="warning">
+          <p className="extreme-weather-text1">extreme heat alert!</p>
         </div>);
       }
       else if (weather.weatherType.type === "rain") {
-        return(<div className='warning rain'>
-          <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be a high chance of flooding and extreme rain. </p>
-          <p className="extreme-weather-text2">Flash flooding is likely. Limit driving as much as possible.
-          </p>
+        return(<div className='warning'>
+          <p className="extreme-weather-text1">flash flood warning!</p>
         </div>);
       }
       else if (weather.weatherType.type === "windy") {
-        return(<div className='warning windy'>
-          <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be very high winds.</p>
-          <p className="extreme-weather-text2">These winds can cause significant damage to trees and property. Be prepared for power outages.</p>
+        return(<div className='warning'>
+          <p className="extreme-weather-text1">High wind warning!</p>
         </div>);
       }
       else if (weather.weatherType.type === "snow") {
-        return(<div className='warning snow'>
-          <p className="extreme-weather-text1">On {this.getDay(weather.date)}, there will be heavy snow!
-          </p>
-          <p className="extreme-weather-text2">Heavy snow is expected. Travel may become hazardous. Stay indoors if possible.
+        return(<div className='warning'>
+          <p className="extreme-weather-text1">Heavy snow expected!
           </p>
         </div>);
       }

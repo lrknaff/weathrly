@@ -4,6 +4,15 @@ const App   = require('../app/components/App');
 
 import {shallow, mount, render} from 'enzyme';
 
+if (!global.window.localStorage) {
+  localStorage = {
+    getItem() { return '{}'; },}
+}
+
+if (typeof(exports) !== "undefined"){
+  var $ = require('jquery');
+}
+
 describe('app.jsc should render the welcome page', function() {
   it('should render the input field', function() {
     const browser = shallow(<App/>);
