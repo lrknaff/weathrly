@@ -1,5 +1,6 @@
 @import 'reset.scss';
 @import 'variables.scss';
+@import 'daily-weather.scss';
 
 /* home page and input*/
 
@@ -17,9 +18,24 @@
   font-size: 4.2em;
   font-weight: 500;
   letter-spacing: 2px;
-  margin: 50px;
+  margin: 50px 50px 15px;
   outline: none;
   width: 100%;
+}
+
+.submit-button {
+  background-color: $white;
+  border: none;
+  font-family: $primary-font;
+  font-size: 16px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 10px;
+  margin-left: 50px;
+  &:hover {
+    cursor: pointer;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
 }
 
 /* city styling */
@@ -42,37 +58,4 @@
 .denver, .san-diego, .castle-rock, .san-fransico {
   background-size: cover;
   height: 100vh;
-}
-
-/* weather display */
-section.castle-rock {
-  background: url('/images/castle-rock-blurry.jpg') no-repeat center center fixed;
-  bottom: 0;
-  height: 200px;
-  position: absolute;
-  width: 100%;
-}
-
-section.denver {
-  background: url('/images/denver-blurry.jpg') no-repeat center center fixed;
-  bottom: 0;
-  height: 200px;
-  position: absolute;
-  width: 100%;
-}
-
-section.san-diego {
-  background: url('/images/san-diego-blurry.jpg') no-repeat center center fixed;
-  bottom: 0;
-  height: 200px;
-  position: absolute;
-  width: 100%;
-}
-
-section.san-fransico {
-  background: url('/images/san-fran-blurry.jpg') no-repeat center center fixed;
-  bottom: 0;
-  height: 200px;
-  position: absolute;
-  width: 100%;
 }
