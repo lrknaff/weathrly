@@ -45,7 +45,7 @@ class App extends React.Component {
         {this.state.info.map(function(weather) {
           return <ul id={this.location} className='daily-weather' key={weather.date}>
             <p className= 'day'>{this.getDay(weather.date)}</p>
-            <p className='weather-type'>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
+            <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
             <p className='high-temp'>High:{weather.temp.high}&deg;</p>
             <p className='low-temp'>Low:{weather.temp.low}&deg;</p>
             <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></ul>
