@@ -15,23 +15,33 @@ var daysMap = {
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {location: '', info: []};
+    this.state = {location: '', info: [], locationTitle: ''};
   }
 
-  componentDidMount() {
+  componentDidMount(e) {
     const recentInputLocation = JSON.parse(localStorage.getItem('location'));
     this.setState({location: recentInputLocation ? recentInputLocation : ''})
+    this.setState({locationTitle: recentInputLocation ? recentInputLocation : ''})
   }
 
   locationAccepted(e) {
+
     e.preventDefault();
-    var location = this.state.location.replace(/\s+/g, '-').toLowerCase()
+
+    var location = this.state.location.replace(/\s+/g, '-').toLowerCase();
+    if (location === ('denver' || 'san diego' || 'san fransico' || 'castle rock'))
+      {
+        location
+      }
+      else {return this.setState({locationTitle: 'Invalid Input', location: ''})};
+
     this.serverRequest = $.get(this.props.source + location, function (result) {
       this.setState({
         info: result
       });
       localStorage.setItem("location", JSON.stringify(location));
     }.bind(this));
+    this.setState({locationTitle: this.state.location.replace(/\s+/g, '-').toLowerCase(), location: ''});
   }
 
  getDay (date) {
@@ -42,7 +52,7 @@ class App extends React.Component {
 
   dailyWeather() {
     return (
-      <section className={this.state.location.replace(/\s+/g, '-').toLowerCase()}>
+      <section className={this.state.locationTitle}>
         {this.state.info.map(function(weather) {
           return <ul id={this.location} className='daily-weather' key={weather.date}>
             <p className= 'day'>{this.getDay(weather.date)}</p>
@@ -91,21 +101,25 @@ class App extends React.Component {
   }
 
 enterKeySubmit(e) {
-  if(e.keyCode === 13) {
-    $('.submit-button').click();
+  if(e.key === 'Enter') {
+    this.locationAccepted(e);
   }
 }
 
   render() {
     return (
-      <div className={this.state.location}>
+      <div className={this.state.locationTitle}>
+        <h1>{this.state.locationTitle}</h1>
         <div>
           <input className='location-input' type='text' placeholder='location'
             value={this.state.location}
             onChange={(e) => {
+
               this.setState({location: (e.target.value)});
+            }}
+            onKeyPress={(e) => {
               this.enterKeySubmit(e);
-            }} />
+            }}/>
           <input className='submit-button' type='submit'
             onClick={(e) =>
               this.locationAccepted(e)} />
