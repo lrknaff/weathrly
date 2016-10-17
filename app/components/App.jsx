@@ -15,7 +15,7 @@ var daysMap = {
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {location: '', info: []};
+    this.state = {location: '', info: [], locationTitle: ''};
   }
 
   componentDidMount() {
@@ -31,6 +31,7 @@ class App extends React.Component {
       });
       localStorage.setItem("location", JSON.stringify(this.state.location));
     }.bind(this));
+    this.setState({locationTitle: this.state.location, location: ''});
   }
 
  getDay (date) {
@@ -41,7 +42,7 @@ class App extends React.Component {
 
   dailyWeather() {
     return (
-      <section className={this.state.location}>
+      <section className={this.state.locationTitle}>
         {this.state.info.map(function(weather) {
           return <ul id={this.location} className='daily-weather' key={weather.date}>
             <p className= 'day'>{this.getDay(weather.date)}</p>
@@ -90,21 +91,24 @@ class App extends React.Component {
   }
 
 enterKeySubmit(e) {
-  if(e.keyCode === 13) {
-    $('.submit-button').click();
+  if(e.key === 'Enter') {
+    this.locationAccepted(e);
   }
 }
 
   render() {
     return (
-      <div className={this.state.location}>
+      <div className={this.state.locationTitle}>
+        <h1>{this.state.locationTitle}</h1>
         <div>
           <input className='location-input' type='text' placeholder='location'
             value={this.state.location}
             onChange={(e) => {
-              this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase()});
+              this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase(e)});
+            }}
+            onKeyPress={(e) => {
               this.enterKeySubmit(e);
-            }} />
+            }}/>
           <input className='submit-button' type='submit'
             onClick={(e) =>
               this.locationAccepted(e)} />
