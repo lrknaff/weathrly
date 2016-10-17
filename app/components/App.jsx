@@ -41,9 +41,8 @@ class App extends React.Component {
 
   dailyWeather() {
     return (
-      <section>
+      <section className={this.state.location}>
         {this.state.info.map(function(weather) {
-
           return <ul id={this.location} className='daily-weather' key={weather.date}>
             <p className= 'day'>{this.getDay(weather.date)}</p>
             <p className='weather-type'>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
@@ -90,11 +89,11 @@ class App extends React.Component {
     }
   }
 
-// enterKeySubmit() {
-//   if(e.keyCode == 13) {
-//     $('.submit-button').click();
-//   }
-// }
+enterKeySubmit(e) {
+  if(e.keyCode === 13) {
+    $('.submit-button').click();
+  }
+}
 
   render() {
     return (
@@ -102,8 +101,10 @@ class App extends React.Component {
         <div>
           <input className='location-input' type='text' placeholder='location'
             value={this.state.location}
-            onChange={(e) =>
-              this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase() })} />
+            onChange={(e) => {
+              this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase()});
+              this.enterKeySubmit(e);
+            }} />
           <input className='submit-button' type='submit'
             onClick={(e) =>
               this.locationAccepted(e)} />
