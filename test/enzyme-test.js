@@ -1,6 +1,7 @@
 var expect = require('chai').expect;
 const React = require('react');
 const App   = require('../app/components/App');
+require('locus')
 
 import {shallow, mount, render} from 'enzyme';
 
@@ -15,26 +16,33 @@ describe('app.jsc should render the welcome page', function() {
     expect(browser.find('.submit-button')).to.have.length(1);
   });
 
-  it('should allow me to click the submit button', function() {
-    const wrapper = mount(<App/>);
-    const input = wrapper.find('.location-input')
+  it('should allow me to input a location', function () {
+      const wrapper = mount(<App/>);
+      const input = wrapper.find('.location-input');
 
-    input.simulate('change', {target: {value: 'denver'}});
-    wrapper.find('.submit-button').simulate('click');
-    expect(wrapper.state().location).to.equal('denver');
-  });
+      input.simulate('change', {target: {value: 'denver'} });
+      expect(wrapper.state('location')).to.equal('denver');
+    });
 
-  it('should return the high temp', function() {
-    const wrapper = mount(<App/>);
-    const input = wrapper.find('.location-input');
+    it('clicking submit should add the location title to the page', function() {
+      const wrapper = mount(<App/>);
+      const input = wrapper.find('.location-input');
 
-    input.simulate('change', {target: {value: 'denver'}});
+      input.simulate('change', {target: {value: 'denver'}});
+      wrapper.find('.submit-button').simulate('click');
+      expect(wrapper.text()).to.equal('denver');
+    });
 
-    wrapper.find('.submit-button').simulate('click');
-    expect(wrapper.find('.daily-weather')).to.have.length(8);
-  })
+    it('clicking submit should render the daily weather to the page', function() {
+      const wrapper = mount(<App/>);
+      const input = wrapper.find('.location-input');
+
+      input.simulate('change', {target: {value: 'denver'}});
+      wrapper.find('.submit-button').simulate('click');
+      eval(locus);
+      expect(wrapper.children.find('article')).to.have.length(8);
+    });
 });
-
 
 
 // describe('app.jsx should render the LikesCounter', function(){

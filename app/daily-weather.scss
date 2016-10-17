@@ -1,4 +1,19 @@
 /* weather display */
+h2, h4 {
+  color: $white;
+  font-family: $primary-font;
+  font-weight: 400;
+  font-size: 1em;
+}
+
+h2 {
+  padding-top: 15px;
+}
+
+h4 {
+  display: inline-block;
+}
+
 
 /*light background*/
 section.denver, section.castle-rock, section.san-diego, section.san-fransico {
@@ -36,8 +51,11 @@ section.Invalid.Input {
 /*weather styling*/
 article {
   display: inline-block;
-  width: 25%;
+  height: 100%;
+  width: 14%;
+  padding: 10px;
   text-align: center;
+  vertical-align: top;
 }
 
 div.sunny {
@@ -70,6 +88,13 @@ div.snow {
 
 div.rain {
   background: url('/images/svg/rain.svg') no-repeat;
+  height: 50px;
+  width: 50px;
+  margin: 0 auto;
+}
+
+div.cloudy {
+  background: url('/images/svg/cloudy.svg') no-repeat;
   height: 50px;
   width: 50px;
   margin: 0 auto;

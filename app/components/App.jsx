@@ -58,9 +58,9 @@ class App extends React.Component {
           return <article key={weather.date}>
             <h2 className= 'day'>{this.getDay(weather.date)}</h2>
             <div className={weather.weatherType.type}></div>
+            <h4 className='high-temp'>{weather.temp.high}&deg;</h4>
+            <h4 className='low-temp'>{weather.temp.low}&deg;</h4>
             <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
-            <p className='high-temp'>High:{weather.temp.high}&deg;</p>
-            <p className='low-temp'>Low:{weather.temp.low}&deg;</p>
             <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></article>
         }.bind(this))}
       </section>
