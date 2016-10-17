@@ -1,6 +1,40 @@
+@import 'reset.scss';
+@import 'variables.scss';
+
+/* home page and input*/
+
 #application {
   background: url('/images/welcome-screen.jpg') no-repeat center center fixed;
   background-size: cover;
   height: 100vh;
   margin: 0;
+}
+
+.location-input {
+  color: $white;
+  background: none;
+  border: none;
+  font-family: $primary-font;
+  font-size: 4.2em;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin: 50px;
+  outline: none;
+}
+
+/* city styling */
+.denver, .san-diego, .castle-rock, .san-fransico {
+
+}
+
+.denver {
+  background: url('/images/denver.jpg') no-repeat center center fixed;
+}
+
+.san-diego {
+  background: url('/images/san-diego.jpg') no-repeat center center fixed;
+}
+
+.san-fransico {
+  background: url('/images/san-fran.jpg') no-repeat center center fixed;
 }

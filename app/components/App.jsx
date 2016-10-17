@@ -90,16 +90,23 @@ class App extends React.Component {
     }
   }
 
+// enterKeySubmit() {
+//   if(e.keyCode == 13) {
+//     $('.submit-button').click();
+//   }
+// }
 
   render() {
     return (
       <div className={this.state.location}>
         <div>
-          <input className='location-input' placeholder='Location'
+          <input className='location-input' type='text' placeholder='location'
             value={this.state.location}
-            onChange={(e) => this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase()}) } />
+            onChange={(e) =>
+              this.setState({location: (e.target.value).replace(/\s+/g, '-').toLowerCase() })} />
           <input className='submit-button' type='submit'
-            onClick={(e) => this.locationAccepted(e)} />
+            onClick={(e) =>
+              this.locationAccepted(e)} />
         </div>
         <div>
           {this.dailyWeather()}
