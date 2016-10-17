@@ -99,7 +99,9 @@ enterKeySubmit(e) {
   render() {
     return (
       <div className={this.state.locationTitle}>
-        <h1>{this.state.locationTitle}</h1>
+        <section id='location-title'>
+          <h1>{this.state.locationTitle}</h1>
+        </section>
         <div>
           <input className='location-input' type='text' placeholder='location'
             value={this.state.location}

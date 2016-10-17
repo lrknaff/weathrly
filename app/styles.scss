@@ -11,10 +11,17 @@
 }
 
 h1 {
-  color: white;
+  color: $white;
   font-family: 'Roboto';
   font-weight: 500;
-  font-size: 4em;
+  font-size: 3.75em;
+  letter-spacing: 2.5px;
+}
+
+#location-title {
+  height: 70px;
+  width: 50%;
+  padding: 70px 25px 25px 70px;
 }
 
 .location-input {
@@ -25,7 +32,7 @@ h1 {
   font-size: 2em;
   font-weight: 400;
   letter-spacing: 1px;
-  margin: 100px 0 0 70px;
+  margin-left: 70px;
   outline: none;
   padding-left: 15px;
   width: 325px;
