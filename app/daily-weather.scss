@@ -1,5 +1,5 @@
 /* weather display */
-h2, h4 {
+h2, h4, p {
   color: $white;
   font-family: $primary-font;
   font-weight: 400;
@@ -7,11 +7,24 @@ h2, h4 {
 }
 
 h2 {
-  padding-top: 15px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  margin: 10px auto;
+  padding: 5px;
+  width: 100px;
 }
 
 h4 {
+  font-size: 1.2em;
   display: inline-block;
+  padding: 10px 5px;
+}
+
+p {
+  font-weight: 300;
+  font-size: 0.9em;
+  letter-spacing: 0.4px;
+  padding: 5px;
 }
 
 
@@ -22,6 +35,7 @@ section.denver, section.castle-rock, section.san-diego, section.san-fransico {
     position: absolute;
     width: 100vw;
     overflow: hidden;
+    text-align: center;
 }
 
 section.castle-rock {
@@ -50,52 +64,63 @@ section.Invalid.Input {
 
 /*weather styling*/
 article {
+  border-right: 1px solid $dark-grey;
   display: inline-block;
   height: 100%;
-  width: 14%;
-  padding: 10px;
+  width: 14.8%;
+  padding: 12px;
   text-align: center;
   vertical-align: top;
 }
 
 div.sunny {
   background: url('/images/svg/sunny.svg') no-repeat;
-  height: 50px;
+  height: 55px;
   width: 50px;
   margin: 0 auto;
 }
 
 div.windy {
-  background: url('/images/svg/windy.svg') no-repeat;
-  height: 50px;
+  background: url('/images/svg/windy.svg') no-repeat center 5px;
+  height: 55px;
   width: 50px;
   margin: 0 auto;
+  padding-top: 5px;
 }
 
 div.thunder {
   background: url('/images/svg/thunder-storms.svg') no-repeat;
-  height: 50px;
+  height: 55px;
   width: 50px;
   margin: 0 auto;
 }
 
 div.snow {
   background: url('/images/svg/snowy.svg') no-repeat;
-  height: 50px;
+  height: 55px;
   width: 50px;
   margin: 0 auto;
 }
 
 div.rain {
   background: url('/images/svg/rain.svg') no-repeat;
-  height: 50px;
+  height: 55px;
   width: 50px;
   margin: 0 auto;
 }
 
 div.cloudy {
   background: url('/images/svg/cloudy.svg') no-repeat;
-  height: 50px;
+  height: 55px;
   width: 50px;
   margin: 0 auto;
+}
+
+.extreme-weather {
+  background-color: $red;
+  border-radius: 17px;
+}
+
+.extreme-weather p {
+  color: $black;
 }

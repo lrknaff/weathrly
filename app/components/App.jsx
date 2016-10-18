@@ -52,48 +52,30 @@ class App extends React.Component {
   }
 
   dailyWeather() {
-     return (
-       <section className={this.state.locationTitle}>
-         {this.state.info.map(function(weather) {
-           return <article key={weather.date}>
-             <h2 className= 'day'>{this.getDay(weather.date)}</h2>
-             <div className={weather.weatherType.type}></div>
-             <h4 className='high-temp'>{weather.temp.high}&deg;</h4>
-             <h4 className='low-temp'>{weather.temp.low}&deg;</h4>
-             <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
-             <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></article>
-         }.bind(this))}
-       </section>
-     )
-   }
+
+    return (
+      <section className={this.state.locationTitle} tabIndex='0'>
+        {this.state.info.map(function(weather) {
+          return <article key={weather.date} tabIndex='0'>
+            <h2 className= 'day'>{this.getDay(weather.date)}</h2>
+            <div className={weather.weatherType.type}></div>
+            <h4 className='high-temp'>{weather.temp.high}&deg;</h4>
+            <h4 className='low-temp'>{weather.temp.low}&deg;</h4>
+            <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
+            <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span></article>
+        }.bind(this))}
+      </section>
+    )
+  }
 
   showExtremeWeather(weather) {
 
-      if (weather.weatherType.scale === 3) {
-        if (weather.weatherType.type === "sunny") {
-          return(<div className="warning">
-            <p className="extreme-weather-text1">extreme heat alert!</p>
-          </div>);
-        }
-        else if (weather.weatherType.type === "rain") {
-          return(<div className='warning'>
-            <p className="extreme-weather-text1">flash flood warning!</p>
-          </div>);
-        }
-        else if (weather.weatherType.type === "windy") {
-          return(<div className='warning'>
-            <p className="extreme-weather-text1">High wind warning!</p>
-          </div>);
-        }
-        else if (weather.weatherType.type === "snow") {
-          return(<div className='warning'>
-            <p className="extreme-weather-text1">Heavy snow expected!
-            </p>
-          </div>);
-        }
-
-      }
+    if (weather.weatherType.scale === 3) {
+      return(<div className="extreme-weather">
+        <p>Extreme conditions expected.</p>
+      </div>);
     }
+  }
 
 
 enterKeySubmit(e) {
@@ -109,7 +91,7 @@ enterKeySubmit(e) {
           <h1>{this.state.locationTitle}</h1>
         </section>
         <div>
-          <input className='location-input' type='text' placeholder='location'
+          <input className='location-input' type='text' placeholder='location' aria-label='location input field'
             value={this.state.location}
             onChange={(e) => {
 
@@ -129,8 +111,6 @@ enterKeySubmit(e) {
     )
   }
   }
-
-
 
 
 
