@@ -1,7 +1,7 @@
 var expect = require('chai').expect;
 const React = require('react');
 const App   = require('../app/components/App');
-require('locus');
+//require('locus');
 
 import {shallow, mount, render} from 'enzyme';
 
@@ -25,7 +25,7 @@ describe('app.jsc should render the welcome page', function() {
     });
 
     it('clicking submit should add the location title to the page', function() {
-      const wrapper = mount(<App/>);
+      const wrapper = mount(<App />);
       const input = wrapper.find('.location-input');
 
       input.simulate('change', {target: {value: 'denver'}});

@@ -1,6 +1,7 @@
 const React = require('react');
-const ReactDOM = require('react-dom');
 var $ = require('jquery');
+
+const DailyWeather = require('./DailyWeather')
 
 var daysMap = {
   '0':'Sunday',
@@ -51,24 +52,24 @@ class App extends React.Component {
    return daysMap[date.getDay()];
   }
 
-  dailyWeather() {
-    return (
-      <section className={this.state.locationTitle} tabIndex='0'>
-        {this.state.info.map(function(weather) {
-          return (
-            <article key={weather.date} tabIndex='0'>
-              <h2 className='day'>{this.getDay(weather.date)}</h2>
-              <div className={weather.weatherType.type}></div>
-              <h4 className='high-temp'>{weather.temp.high}&deg;</h4>
-              <h4 className='low-temp'>{weather.temp.low}&deg;</h4>
-              <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
-              <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span>
-            </article>
-          )
-        }.bind(this))}
-      </section>
-    )
-  }
+  // dailyWeather() {
+  //   return (
+  //     <section className={this.state.locationTitle} tabIndex='0'>
+  //       {this.state.info.map(function(weather) {
+  //         return (
+  //           <article key={weather.date} tabIndex='0'>
+  //             <h2 className='day'>{this.getDay(weather.date)}</h2>
+  //             <div className={weather.weatherType.type}></div>
+  //             <h4 className='high-temp'>{weather.temp.high}&deg;</h4>
+  //             <h4 className='low-temp'>{weather.temp.low}&deg;</h4>
+  //             <p className={weather.weatherType.type}>There is a {Math.floor(weather.weatherType.chance *100)}% chance it will be {weather.weatherType.type}</p>
+  //             <span className='extreme-weather'> {this.showExtremeWeather(weather)}</span>
+  //           </article>
+  //         )
+  //       }.bind(this))}
+  //     </section>
+  //   )
+  // }
 
   showExtremeWeather(weather) {
     if (weather.weatherType.scale === 3) {
@@ -87,6 +88,8 @@ enterKeySubmit(e) {
 }
 
   render() {
+    //DailyWeather({dailyInfo: info})
+    var weatherData = this.state.locationTitle ? <DailyWeather info=this.state.info location=this.state.locationTitle/> : 'loading...'
     return (
       <div className={this.state.locationTitle}>
         <section id='location-title'>
@@ -106,7 +109,7 @@ enterKeySubmit(e) {
               this.locationAccepted(e)} />
         </div>
         <div>
-          {this.dailyWeather()}
+          { weatherData }
         </div>
       </div>
     )
@@ -116,6 +119,5 @@ enterKeySubmit(e) {
 
 
 
-ReactDOM.render(<App source='https://weatherly-api.herokuapp.com/api/weather/' />, document.getElementById('application'))
 
 module.exports = App;
