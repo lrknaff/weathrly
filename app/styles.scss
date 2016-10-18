@@ -8,6 +8,7 @@
 #application {
   background: url('/images/welcome-screen.jpg') no-repeat center center fixed;
   background-size: cover;
+  box-sizing: border-box;
   height: 100vh;
 }
 
