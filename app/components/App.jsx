@@ -71,12 +71,10 @@ class App extends React.Component {
 
     if (weather.weatherType.scale === 3) {
       return(<div className="extreme-weather">
-        <p>Extreme conditons expected.</p>
+        <p>Extreme conditions expected.</p>
       </div>);
     }
   }
-
-
 
 enterKeySubmit(e) {
   if(e.key === 'Enter') {
@@ -112,8 +110,6 @@ enterKeySubmit(e) {
   }
 
   }
-
-
 
 
 
