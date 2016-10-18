@@ -56,7 +56,7 @@ class App extends React.Component {
       <section className={this.state.locationTitle} tabIndex='0'>
         {this.state.info.map(function(weather) {
           return <article key={weather.date} tabIndex='0'>
-            <h2 className= 'day'>{this.getDay(weather.date)}</h2>
+            <h2 className='day'>{this.getDay(weather.date)}</h2>
             <div className={weather.weatherType.type}></div>
             <h4 className='high-temp'>{weather.temp.high}&deg;</h4>
             <h4 className='low-temp'>{weather.temp.low}&deg;</h4>
@@ -70,9 +70,11 @@ class App extends React.Component {
   showExtremeWeather(weather) {
 
     if (weather.weatherType.scale === 3) {
-      return(<div className="extreme-weather">
+      return(
+        <div className="extreme-weather">
         <p>Extreme conditions expected.</p>
-      </div>);
+      </div>
+    );
     }
   }
 
