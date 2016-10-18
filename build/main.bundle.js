@@ -84,7 +84,7 @@
 
 
 	// module
-	exports.push([module.id, ".denver {\n  background-image: url(" + __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./images/denver.jpg\""); e.code = 'MODULE_NOT_FOUND'; throw e; }())) + "); }\n", ""]);
+	exports.push([module.id, "/* http://meyerweb.com/eric/tools/css/reset/\n   v2.0 | 20110126\n   License: none (public domain)\n*/\nhtml, body, div, span, applet, object, iframe,\nh1, h2, h3, h4, h5, h6, p, blockquote, pre,\na, abbr, acronym, address, big, cite, code,\ndel, dfn, em, img, ins, kbd, q, s, samp,\nsmall, strike, strong, sub, sup, tt, var,\nb, u, i, center,\ndl, dt, dd, ol, ul, li,\nfieldset, form, label, legend,\ntable, caption, tbody, tfoot, thead, tr, th, td,\narticle, aside, canvas, details, embed,\nfigure, figcaption, footer, header, hgroup,\nmenu, nav, output, ruby, section, summary,\ntime, mark, audio, video {\n  margin: 0;\n  padding: 0;\n  border: 0;\n  font-size: 100%;\n  font: inherit;\n  vertical-align: baseline; }\n\n/* HTML5 display-role reset for older browsers */\narticle, aside, details, figcaption, figure,\nfooter, header, hgroup, menu, nav, section {\n  display: block; }\n\nbody {\n  line-height: 1; }\n\nol, ul {\n  list-style: none; }\n\nblockquote, q {\n  quotes: none; }\n\nblockquote:before, blockquote:after,\nq:before, q:after {\n  content: '';\n  content: none; }\n\ntable {\n  border-collapse: collapse;\n  border-spacing: 0; }\n\n/* weather display */\nh2, h4, p {\n  color: #FFF;\n  font-family: \"Roboto\", sans-serif;\n  font-weight: 400;\n  font-size: 1em; }\n\nh2 {\n  background-color: rgba(0, 0, 0, 0.2);\n  border-radius: 15px;\n  margin: 15px auto;\n  padding: 5px;\n  width: 100px; }\n\nh4 {\n  font-size: 1.2em;\n  display: inline-block;\n  padding: 10px 5px; }\n\np {\n  font-weight: 300;\n  font-size: 0.9em;\n  letter-spacing: 0.4px;\n  padding: 5px; }\n\n/*light background*/\nsection.denver, section.castle-rock, section.san-diego, section.san-fransico {\n  bottom: 0;\n  height: 240px;\n  position: absolute;\n  width: 100vw;\n  overflow: hidden; }\n\nsection.castle-rock {\n  background: url(\"/images/castle-rock-blurry.jpg\") no-repeat center fixed;\n  background-size: cover; }\n\nsection.denver {\n  background: url(\"/images/denver-blurry.jpg\") no-repeat center center fixed;\n  background-size: cover; }\n\nsection.san-diego {\n  background: url(\"/images/san-diego-blurry.jpg\") no-repeat center center fixed;\n  background-size: cover; }\n\nsection.san-fransico {\n  background: url(\"/images/san-fran-blurry.jpg\") no-repeat center center fixed;\n  background-size: cover; }\n\nsection.Invalid.Input {\n  display: none; }\n\n/*weather styling*/\narticle {\n  display: inline-block;\n  height: 100%;\n  width: 14.8%;\n  padding: 12px;\n  text-align: center;\n  vertical-align: top; }\n\narticle::before {\n  border-right: 1px solid #212121;\n  content: '';\n  position: absolute;\n  height: 80%;\n  top: 10%;\n  width: 8.2%; }\n\ndiv.sunny {\n  background: url(\"/images/svg/sunny.svg\") no-repeat;\n  height: 55px;\n  width: 50px;\n  margin: 0 auto; }\n\ndiv.windy {\n  background: url(\"/images/svg/windy.svg\") no-repeat center 5px;\n  height: 55px;\n  width: 50px;\n  margin: 0 auto;\n  padding-top: 5px; }\n\ndiv.thunder {\n  background: url(\"/images/svg/thunder-storms.svg\") no-repeat;\n  height: 55px;\n  width: 50px;\n  margin: 0 auto; }\n\ndiv.snow {\n  background: url(\"/images/svg/snowy.svg\") no-repeat;\n  height: 55px;\n  width: 50px;\n  margin: 0 auto; }\n\ndiv.rain {\n  background: url(\"/images/svg/rain.svg\") no-repeat;\n  height: 55px;\n  width: 50px;\n  margin: 0 auto; }\n\ndiv.cloudy {\n  background: url(\"/images/svg/cloudy.svg\") no-repeat;\n  height: 55px;\n  width: 50px;\n  margin: 0 auto; }\n\n.extreme-weather {\n  background-color: red;\n  border-radius: 17px; }\n\n.extreme-weather p {\n  color: #000; }\n\n@media screen and (max-width: 735px) {\n  #location-title {\n    width: 70%; } }\n\n/* home page and input*/\n#application {\n  background: url(\"/images/welcome-screen.jpg\") no-repeat center center fixed;\n  background-size: cover;\n  height: 100vh; }\n\nh1 {\n  color: #FFF;\n  font-family: 'Roboto';\n  font-weight: 500;\n  font-size: 3.75em;\n  letter-spacing: 2.5px; }\n\n#location-title {\n  height: 70px;\n  width: 50%;\n  padding: 70px 25px 25px 70px; }\n\n.location-input {\n  color: #212121;\n  background: #FFF;\n  border: none;\n  font-family: \"Roboto\", sans-serif;\n  font-size: 2em;\n  font-weight: 400;\n  letter-spacing: 1px;\n  margin-left: 70px;\n  outline: none;\n  padding-left: 15px;\n  width: 325px; }\n\n.submit-button {\n  background-color: #FFF;\n  border: none;\n  font-family: \"Roboto\", sans-serif;\n  font-size: 16px;\n  letter-spacing: 1px;\n  text-transform: uppercase;\n  padding: 12px;\n  margin-left: 10px;\n  vertical-align: bottom; }\n  .submit-button:hover {\n    cursor: pointer;\n    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }\n\n/* city styling */\n.castle-rock {\n  background: url(\"/images/castle-rock.jpg\") no-repeat center center fixed; }\n\n.denver {\n  background: url(\"/images/denver.jpg\") no-repeat center center fixed; }\n\n.san-diego {\n  background: url(\"/images/san-diego.jpg\") no-repeat center center fixed; }\n\n.san-fransico {\n  background: url(\"/images/san-fran.jpg\") no-repeat center center fixed; }\n\n.denver, .san-diego, .castle-rock, .san-fransico {\n  background-size: cover;\n  height: 100vh; }\n", ""]);
 
 	// exports
 
@@ -432,26 +432,37 @@
 
 	    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this));
 
-	    _this.state = { location: '', info: [] };
+	    _this.state = { location: '', info: [], locationTitle: '' };
 	    return _this;
 	  }
 
 	  _createClass(App, [{
 	    key: 'componentDidMount',
-	    value: function componentDidMount() {
+	    value: function componentDidMount(e) {
 	      var recentInputLocation = JSON.parse(localStorage.getItem('location'));
 	      this.setState({ location: recentInputLocation ? recentInputLocation : '' });
+	      this.setState({ locationTitle: recentInputLocation ? recentInputLocation : '' });
 	    }
 	  }, {
 	    key: 'locationAccepted',
 	    value: function locationAccepted(e) {
+
 	      e.preventDefault();
-	      this.serverRequest = $.get(this.props.source + this.state.location, function (result) {
+
+	      var location = this.state.location.replace(/\s+/g, '-').toLowerCase();
+	      if (location === 'denver' || location === 'san-diego' || location === 'san-fransico' || location === 'castle-rock') {
+	        location;
+	      } else {
+	        return this.setState({ locationTitle: 'Invalid Input', location: '' });
+	      }
+
+	      this.serverRequest = $.get(this.props.source + location, function (result) {
 	        this.setState({
 	          info: result
 	        });
-	        localStorage.setItem("location", JSON.stringify(this.state.location));
+	        localStorage.setItem("location", JSON.stringify(location));
 	      }.bind(this));
+	      this.setState({ locationTitle: this.state.location.replace(/\s+/g, '-').toLowerCase(), location: '' });
 	    }
 	  }, {
 	    key: 'getDay',
@@ -465,38 +476,36 @@
 	    value: function dailyWeather() {
 	      return React.createElement(
 	        'section',
-	        null,
+	        { className: this.state.locationTitle, tabIndex: '0' },
 	        this.state.info.map(function (weather) {
-
 	          return React.createElement(
-	            'ul',
-	            { id: this.location, className: 'daily-weather', key: weather.date },
+	            'article',
+	            { key: weather.date, tabIndex: '0' },
 	            React.createElement(
-	              'p',
+	              'h2',
 	              { className: 'day' },
 	              this.getDay(weather.date)
 	            ),
+	            React.createElement('div', { className: weather.weatherType.type }),
 	            React.createElement(
-	              'p',
-	              { className: 'weather-type' },
-	              'There is a ',
-	              Math.floor(weather.weatherType.chance * 100),
-	              '% chance it will be ',
-	              weather.weatherType.type
-	            ),
-	            React.createElement(
-	              'p',
+	              'h4',
 	              { className: 'high-temp' },
-	              'High:',
 	              weather.temp.high,
 	              '\xB0'
 	            ),
 	            React.createElement(
-	              'p',
+	              'h4',
 	              { className: 'low-temp' },
-	              'Low:',
 	              weather.temp.low,
 	              '\xB0'
+	            ),
+	            React.createElement(
+	              'p',
+	              { className: weather.weatherType.type },
+	              'There is a ',
+	              Math.floor(weather.weatherType.chance * 100),
+	              '% chance it will be ',
+	              weather.weatherType.type
 	            ),
 	            React.createElement(
 	              'span',
@@ -513,75 +522,22 @@
 	    value: function showExtremeWeather(weather) {
 
 	      if (weather.weatherType.scale === 3) {
-	        if (weather.weatherType.type === "sunny") {
-	          return React.createElement(
-	            'div',
-	            { className: 'warning sun' },
-	            React.createElement(
-	              'p',
-	              { className: 'extreme-weather-text1' },
-	              'On ',
-	              this.getDay(weather.date),
-	              ', there will be extreme sun. '
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'extreme-weather-text2' },
-	              'Stay inside if possible, and use sunscreen when going outdoors!'
-	            )
-	          );
-	        } else if (weather.weatherType.type === "rain") {
-	          return React.createElement(
-	            'div',
-	            { className: 'warning rain' },
-	            React.createElement(
-	              'p',
-	              { className: 'extreme-weather-text1' },
-	              'On ',
-	              this.getDay(weather.date),
-	              ', there will be a high chance of flooding and extreme rain. '
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'extreme-weather-text2' },
-	              'Flash flooding is likely. Limit driving as much as possible.'
-	            )
-	          );
-	        } else if (weather.weatherType.type === "windy") {
-	          return React.createElement(
-	            'div',
-	            { className: 'warning windy' },
-	            React.createElement(
-	              'p',
-	              { className: 'extreme-weather-text1' },
-	              'On ',
-	              this.getDay(weather.date),
-	              ', there will be very high winds.'
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'extreme-weather-text2' },
-	              'These winds can cause significant damage to trees and property. Be prepared for power outages.'
-	            )
-	          );
-	        } else if (weather.weatherType.type === "snow") {
-	          return React.createElement(
-	            'div',
-	            { className: 'warning snow' },
-	            React.createElement(
-	              'p',
-	              { className: 'extreme-weather-text1' },
-	              'On ',
-	              this.getDay(weather.date),
-	              ', there will be heavy snow!'
-	            ),
-	            React.createElement(
-	              'p',
-	              { className: 'extreme-weather-text2' },
-	              'Heavy snow is expected. Travel may become hazardous. Stay indoors if possible.'
-	            )
-	          );
-	        }
+	        return React.createElement(
+	          'div',
+	          { className: 'extreme-weather' },
+	          React.createElement(
+	            'p',
+	            null,
+	            'Extreme conditions expected.'
+	          )
+	        );
+	      }
+	    }
+	  }, {
+	    key: 'enterKeySubmit',
+	    value: function enterKeySubmit(e) {
+	      if (e.key === 'Enter') {
+	        this.locationAccepted(e);
 	      }
 	    }
 	  }, {
@@ -591,14 +547,27 @@
 
 	      return React.createElement(
 	        'div',
-	        { className: this.state.location },
+	        { className: this.state.locationTitle },
+	        React.createElement(
+	          'section',
+	          { id: 'location-title' },
+	          React.createElement(
+	            'h1',
+	            null,
+	            this.state.locationTitle
+	          )
+	        ),
 	        React.createElement(
 	          'div',
 	          null,
-	          React.createElement('input', { className: 'location-input', placeholder: 'Location',
+	          React.createElement('input', { className: 'location-input', type: 'text', placeholder: 'location', 'aria-label': 'location input field',
 	            value: this.state.location,
 	            onChange: function onChange(e) {
-	              return _this2.setState({ location: e.target.value.replace(/\s+/g, '-').toLowerCase() });
+
+	              _this2.setState({ location: e.target.value });
+	            },
+	            onKeyPress: function onKeyPress(e) {
+	              _this2.enterKeySubmit(e);
 	            } }),
 	          React.createElement('input', { className: 'submit-button', type: 'submit',
 	            onClick: function onClick(e) {
