@@ -6,7 +6,7 @@
 /* home page and input*/
 
 #application {
-  background: url('/images/welcome-screen.jpg') no-repeat center center fixed;
+  background: url('/app/images/welcome-screen.jpg') no-repeat center center fixed;
   background-size: cover;
   box-sizing: border-box;
   height: 100vh;
@@ -58,19 +58,19 @@ h1 {
 
 /* city styling */
 .castle-rock {
-  background: url('/images/castle-rock.jpg') no-repeat center center fixed;
+  background: url('/app/images/castle-rock.jpg') no-repeat center center fixed;
 }
 
 .denver {
-  background: url('/images/denver.jpg') no-repeat center center fixed;
+  background: url('/app/images/denver.jpg') no-repeat center center fixed;
 }
 
 .san-diego {
-  background: url('/images/san-diego.jpg') no-repeat center center fixed;
+  background: url('/app/images/san-diego.jpg') no-repeat center center fixed;
 }
 
 .san-fransico {
-  background: url('/images/san-fran.jpg') no-repeat center center fixed;
+  background: url('/app/images/san-fran.jpg') no-repeat center center fixed;
 }
 
 .denver, .san-diego, .castle-rock, .san-fransico {

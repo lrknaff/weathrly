@@ -39,22 +39,22 @@ section.denver, section.castle-rock, section.san-diego, section.san-fransico {
 }
 
 section.castle-rock {
-  background: url('/images/castle-rock-blurry.jpg') no-repeat center fixed;
+  background: url('/app/images/castle-rock-blurry.jpg') no-repeat center fixed;
   background-size: cover;
 }
 
 section.denver {
-  background: url('/images/denver-blurry.jpg') no-repeat center center fixed;
+  background: url('/app/images/denver-blurry.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
 section.san-diego {
-  background: url('/images/san-diego-blurry.jpg') no-repeat center center fixed;
+  background: url('/app/images/san-diego-blurry.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
 section.san-fransico {
-  background: url('/images/san-fran-blurry.jpg') no-repeat center center fixed;
+  background: url('/app/images/san-fran-blurry.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -74,7 +74,7 @@ article {
 }
 
 div.sunny {
-  background: url('/images/svg/sunny.svg') no-repeat;
+  background: url('/app/images/svg/sunny.svg') no-repeat;
   height: 55px;
   width: 50px;
   margin: 0 auto;
@@ -89,28 +89,28 @@ div.windy {
 }
 
 div.thunder {
-  background: url('/images/svg/thunder-storms.svg') no-repeat;
+  background: url('/app/images/svg/thunder-storms.svg') no-repeat;
   height: 55px;
   width: 50px;
   margin: 0 auto;
 }
 
 div.snow {
-  background: url('/images/svg/snowy.svg') no-repeat;
+  background: url('/app/images/svg/snowy.svg') no-repeat;
   height: 55px;
   width: 50px;
   margin: 0 auto;
 }
 
 div.rain {
-  background: url('/images/svg/rain.svg') no-repeat;
+  background: url('/app/images/svg/rain.svg') no-repeat;
   height: 55px;
   width: 50px;
   margin: 0 auto;
 }
 
 div.cloudy {
-  background: url('/images/svg/cloudy.svg') no-repeat;
+  background: url('/app/images/svg/cloudy.svg') no-repeat;
   height: 55px;
   width: 50px;
   margin: 0 auto;
