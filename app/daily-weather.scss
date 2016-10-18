@@ -9,7 +9,7 @@ h2, h4, p {
 h2 {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 15px;
-  margin: 15px auto;
+  margin: 10px auto;
   padding: 5px;
   width: 100px;
 }
@@ -35,6 +35,7 @@ section.denver, section.castle-rock, section.san-diego, section.san-fransico {
     position: absolute;
     width: 100vw;
     overflow: hidden;
+    text-align: center;
 }
 
 section.castle-rock {
@@ -63,21 +64,13 @@ section.Invalid.Input {
 
 /*weather styling*/
 article {
+  border-right: 1px solid $dark-grey;
   display: inline-block;
   height: 100%;
   width: 14.8%;
   padding: 12px;
   text-align: center;
   vertical-align: top;
-}
-
-article::before {
-  border-right: 1px solid $dark-grey;
-  content: '';
-  position: absolute;
-  height: 80%;
-  top: 10%;
-  width: 14%;
 }
 
 div.sunny {
@@ -126,4 +119,8 @@ div.cloudy {
 .extreme-weather {
   background-color: $red;
   border-radius: 17px;
+}
+
+.extreme-weather p {
+  color: $black;
 }

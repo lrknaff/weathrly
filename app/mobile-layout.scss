@@ -1,0 +1,91 @@
+/*mobile styles*/
+@media screen and (max-width: 1290px) {
+   article {
+     width: 14.5%;
+   }
+}
+
+@media screen and (max-width: 1107px) {
+   article {
+     width: 29%;
+     height: 45%;
+     padding: 7px;
+   }
+
+   section.denver, section.castle-rock, section.san-diego, section.san-fransico {
+       bottom: 0;
+       height: 440px;
+   }
+}
+
+@media screen and (max-width: 735px) {
+  section#location-title {
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  div.denver, div.san-diego, div.castle-rock, div.san-fransico {
+    background-size: cover;
+    height: 1000px;
+  }
+
+  section.denver, section.castle-rock, section.san-diego, section.san-fransico {
+      height: 640px;
+      top: 371px;
+  }
+
+  article {
+    width: 45%;
+    height: 31%;
+    padding: 7px;
+  }
+
+  section#location-title {
+    padding: 70px 20px 20px 30px;
+  }
+
+  input.location-input {
+    margin-left: 20px;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  section h1 {
+    font-size: 3em;
+  }
+
+  section#location-title {
+    padding-bottom: 5px;
+  }
+
+  input.location-input {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 410px) {
+  section h1 {
+    font-size: 2.75em;
+  }
+
+  section.denver, section.castle-rock, section.san-diego, section.san-fransico {
+      height: 700px;
+      top: 371px;
+  }
+
+  section#location-title {
+    padding: 70px 20px 20px 15px;
+  }
+
+  input.location-input {
+    margin-left: 15px;
+  }
+
+  input.submit-button {
+    display: block;
+    margin-left: 15px;
+    margin-top: 10px;
+  }
+
+}

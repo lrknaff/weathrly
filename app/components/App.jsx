@@ -53,9 +53,9 @@ class App extends React.Component {
 
   dailyWeather() {
     return (
-      <section className={this.state.locationTitle}>
+      <section className={this.state.locationTitle} tabIndex='0'>
         {this.state.info.map(function(weather) {
-          return <article key={weather.date}>
+          return <article key={weather.date} tabIndex='0'>
             <h2 className= 'day'>{this.getDay(weather.date)}</h2>
             <div className={weather.weatherType.type}></div>
             <h4 className='high-temp'>{weather.temp.high}&deg;</h4>
@@ -89,7 +89,7 @@ enterKeySubmit(e) {
           <h1>{this.state.locationTitle}</h1>
         </section>
         <div>
-          <input className='location-input' type='text' placeholder='location'
+          <input className='location-input' type='text' placeholder='location' aria-label='location input field'
             value={this.state.location}
             onChange={(e) => {
 
